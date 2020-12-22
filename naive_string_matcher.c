@@ -4,22 +4,25 @@
 
 char line[MAX_LINE];
 int get_line(void);
-char pattern[6] = "return";
+char pattern[3] = "eye";
+int pattern_length = 3;
 
 int main()
 {
-	int length, i=0, n, line_index=0;
+	int length, i, n, line_index=0;
 	
 	while ((length=get_line()) > 0)
 	{
-		printf("%s",line);
-		while(line[i]!='\n')
+		i = 0;
+		while(i<length)		// try not use single line[i]!='\n' as condition
 		{
-			//printf("%c",line[i]);
 			if (line[i] == pattern[0])
-				for (n=0; n<6; ++n)
-					if (line[i+n] == pattern[n])
-						printf("Matched in line %d, column %d \n!", line_index, i);
+				for (n=0; n<pattern_length; ++n){
+					if (line[i+n] != pattern[n])
+						break;
+					if (n == (pattern_length-1))
+						printf("Matched in line %d, column %d! \n", line_index, i);
+				}
 			++i;
 		}
 		++line_index;

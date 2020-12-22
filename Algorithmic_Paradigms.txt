@@ -1,0 +1,6 @@
+1. Greedy algorithm
+2. Brute force algorithm
+3. Divide-and-conquer algorithm
+4. Dynamic programming algorithm
+5. Backtracking algorithm
+6. Probabilistic algorithm
